@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Make It Pop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <span class="logo">Make It Pop</span>
+      <span class="logo-badge">🎯</span>
+    </div>
+    <div class="toolbar-center">
+      <div class="chip" id="score-chip">
+        <span class="chip-label">Score</span>
+        <span class="chip-val" id="score-val">0</span>
+      </div>
+      <div class="chip" id="level-chip">
+        <span class="chip-label">Level</span>
+        <span class="chip-val" id="level-val">1</span>
+      </div>
+    </div>
+    <div class="toolbar-right">
+      <div class="lives" id="lives" aria-label="Lives">
+        <span class="life-dot"></span>
+        <span class="life-dot"></span>
+        <span class="life-dot"></span>
+      </div>
+    </div>
+  </header>
+
+  <canvas id="game"></canvas>
+
+  <div id="combo-toast" aria-live="polite"></div>
+
+  <!-- Start screen -->
+  <div id="start-overlay" class="overlay">
+    <div class="card">
+      <div class="card-icon">🎯</div>
+      <h1>Make It Pop</h1>
+      <p class="subtitle">Foge dos clichês de feedback. Apanha os tokens de design.</p>
+      <ul class="how-to">
+        <li><kbd>↑↓←→</kbd> ou <kbd>WASD</kbd> para mover</li>
+        <li>Ou arrasta com o rato / dedo</li>
+        <li>Apanha tokens de cor, tipografia e grid</li>
+        <li>Foge dos balões de comentário — 3 vidas</li>
+        <li><strong>"But why?"</strong> dá-te um escudo temporário</li>
+      </ul>
+      <button id="play-btn" class="btn btn-primary">Jogar</button>
+    </div>
+  </div>
+
+  <!-- Game over screen -->
+  <div id="over-overlay" class="overlay hidden">
+    <div class="card">
+      <div class="card-icon">💀</div>
+      <h1>Game Over</h1>
+      <p class="subtitle">Demasiado feedback. Hora de exportar.</p>
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Score</span>
+          <span class="stat-val" id="final-score">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Tokens</span>
+          <span class="stat-val" id="final-tokens">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Max Combo</span>
+          <span class="stat-val" id="final-combo">x0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Tempo</span>
+          <span class="stat-val" id="final-time">0s</span>
+        </div>
+      </div>
+      <button id="retry-btn" class="btn btn-primary">Tentar de novo</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
